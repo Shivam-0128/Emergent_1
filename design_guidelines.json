@@ -1,0 +1,87 @@
+{
+  "theme": "light",
+  "typography": {
+    "headings": "Nunito, sans-serif",
+    "body": "Work Sans, sans-serif",
+    "notes": "Use Nunito for all headings with tracking-tight. Use Work Sans for body and UI elements. Ensure typography scales are generous but not overly massive (e.g., text-3xl for main page titles)."
+  },
+  "colors": {
+    "background": "#FDFBF7",
+    "surface": "#FFFFFF",
+    "primary": "#5C7C5A",
+    "primary_hover": "#4A6649",
+    "secondary": "#F3F1EC",
+    "text_main": "#2C302E",
+    "text_muted": "#757A77",
+    "accent_terracotta": "#C67C6D",
+    "border": "#E1DED8"
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat solid surfaces with subtle 1px border (#E1DED8). No glassmorphism here, as this is a habit tracker where data clarity is needed.",
+    "shadows": "Very soft ambient shadow (shadow-sm) for interactive cards on hover.",
+    "radius": "rounded-2xl for main cards, rounded-xl for buttons, rounded-md for checkboxes."
+  },
+  "components": [
+    {
+      "name": "Navigation (Sidebar & Top Nav)",
+      "description": "Sidebar on desktop, Top nav on mobile. Minimalist, with exact labels: 'My habits', 'Community', and 'Sign out'. Active state uses the primary color background with white text or primary text with secondary background."
+    },
+    {
+      "name": "HabitCard",
+      "description": "Horizontal card displaying habit name, 'When I do it', privacy status tag ('Shared' or 'Private'), 'Days done:' count, 'Current streak:' count. Clicking the name routes to detail page."
+    },
+    {
+      "name": "AddHabitForm",
+      "description": "Form containing 'Habit name' (input), 'When I do it' (textarea), 'Share with the community' (checkbox, unticked by default), and 'Add habit' (button)."
+    },
+    {
+      "name": "SevenDayCheckboxes",
+      "description": "A horizontal list under 'Last 7 days' showing 7 checkboxes labelled with dates in YYYY-MM-DD format. Owner only can change."
+    },
+    {
+      "name": "CommunityHabitCard",
+      "description": "Card showing habit name, owner display name, 'When I do it' text, 'Days done: N'. Click name to open habit detail."
+    },
+    {
+      "name": "CommentFeed",
+      "description": "A list of comments with commenter names visible. Includes a 'Comment' input field and a 'Post comment' button."
+    },
+    {
+      "name": "AuthForms",
+      "description": "Sign up page requires: 'Display name', 'Email', 'Password', 'Sign up' button. Sign in page requires: 'Email', 'Password', 'Sign in' button. Clean, generous padding."
+    }
+  ],
+  "layouts": {
+    "app_shell": "CSS Grid: grid-cols-1 md:grid-cols-[240px_1fr]. Sidebar on left (hidden on mobile), top nav on mobile. Main content area should be centered with max-width (max-w-5xl) and padding (p-6 md:p-12).",
+    "spacing": "Use p-6 or p-8 for cards. Use gap-6 for lists. Avoid tight packing."
+  },
+  "motion": {
+    "hover": "Hover on clickable cards/buttons shifts -translate-y-0.5 with subtle shadow increase.",
+    "interactions": "Checkbox toggle uses subtle scale animation. Transitions should target specific properties (e.g. transition-colors)."
+  },
+  "accessibility": {
+    "contrast": "Ensure primary color (#5C7C5A) meets 4.5:1 against white background.",
+    "focus": "Use focus:ring-2 focus:ring-primary focus:ring-offset-2 for all interactive elements.",
+    "test_ids": "Include data-testid on all forms, buttons, checkboxes, and links (e.g., data-testid='sign-in-button')."
+  },
+  "instructions_to_main_agent": [
+    "Build the 'Sign in' / 'Sign up' flow with exact labels. Once authenticated, open 'My habits'.",
+    "Every page must have links to 'My habits' and 'Community' plus 'Sign out' button; also sidebar buttons to those pages.",
+    "Implement 'My habits' view showing only own habits. Include the add form with 'Habit name', 'When I do it' (textarea), 'Share with the community' (unticked by default), 'Add habit' button.",
+    "List of habits must show 'Shared' or 'Private'. Clicking name opens its page.",
+    "Habit page must show name, 'When I do it' text, list 'Last 7 days' with 7 checkboxes labelled with date YYYY-MM-DD (owner only can change), 'Days done:' count, and 'Current streak:' count.",
+    "Community page shows only shared habits with name, owner display name, 'When I do it' text, 'Days done: N'. Click name opens habit.",
+    "Inside habit detail (for community), signed-in members can write 'Comment' and press 'Post comment'; commenter names must be visible.",
+    "Use 'lucide-react' for icons.",
+    "Store comments and habit completions effectively."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use generic centered layouts. Left-align content for readability.",
+    "Avoid applying 'transition: all', target specific properties like 'transition-colors' or 'transition-transform'.",
+    "Ensure all interactive elements have hover and focus states explicitly set.",
+    "Create depth through layered design elements (1px borders + soft shadows).",
+    "Use modern pill-shaped or rounded-xl buttons.",
+    "No AI emoji icons. Use clean SVG icons.",
+    "Use sonner for toast notifications for success/error states."
+  ]
+}
