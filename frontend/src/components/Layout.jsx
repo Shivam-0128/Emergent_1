@@ -33,7 +33,8 @@ export const Layout = () => {
         </div>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr]">
-        <aside className="hidden border-r border-[#E1DED8] p-5 md:block md:min-h-[calc(100vh-61px)]" data-testid="sidebar">
+        <aside className="hidden border-r border-[#E1DED8] md:block md:min-h-[calc(100vh-61px)]" data-testid="sidebar">
+          <div className="sticky top-[61px] p-5">
           <p className="mb-3 px-2 text-xs uppercase tracking-widest text-[#757A77]">Signed in as</p>
           <p className="mb-6 px-2 font-heading font-bold" data-testid="sidebar-user-name">{user?.display_name}</p>
           <div className="flex flex-col gap-2">
@@ -43,6 +44,7 @@ export const Layout = () => {
             <NavLink to="/community" className={linkCls} data-testid="sidebar-community-button">
               <Users className="h-4 w-4" /> Community
             </NavLink>
+          </div>
           </div>
         </aside>
         <main className="mx-auto w-full max-w-4xl p-6 md:p-12">
